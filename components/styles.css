@@ -1,0 +1,45 @@
+.container{
+    display: flex;
+}
+
+.center{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.col{
+    flex-direction: column;
+}
+
+.nowrap{
+    flex-wrap: nowrap;
+}
+
+.wrap{
+    flex-wrap: wrap;
+}
+
+.Tiny{
+    font-size: 10px;
+}
+
+.Small{
+    font-size: 20px;
+}
+
+.Med{
+    font-size: 30px;
+}
+
+.Big{
+    font-size: 45px;
+}
+
+.Bigger{
+    font-size: 50px;
+}

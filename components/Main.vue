@@ -18,14 +18,30 @@
 
 
 <style>
+
+
 #SubmitLog{
     align-self: center;
     height: auto;
     width: 60px;
 }
 
+html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 #PassSection{
-    margin: 10%;
+    box-shadow: 0px 0px 10px 5px black;
+    margin: 0%;
+    height: 300px;
+    width: 300px;
 }
 
 #Username,#Password{

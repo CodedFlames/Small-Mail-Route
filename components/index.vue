@@ -1,13 +1,16 @@
 <script setup>
-function test(){
-    this.$router.push(`/Test`);
+import {default as router } from '../index.ts'
+
+function FirstFun(){
+    console.log("Button clicked.");
+    router.push('/Test');
 }
 </script>
 
 
 <template>
       <p>
-        <input type="button" @click="test()" value="Test">
+        <input @click="FirstFun()" type="button" value="Test">
         <router-link to="/">Go to Login</router-link>
         <router-link to="/Test">Go to Test</router-link>
       </p>

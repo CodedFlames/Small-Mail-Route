@@ -1,5 +1,10 @@
 <script setup>
+import {default as router } from '../../index.ts';
+import axios from 'axios';
 
+function Check(){
+    axios.get()
+}
 </script>
 
 
@@ -18,8 +23,6 @@
 
 
 <style>
-
-
 #SubmitLog{
     align-self: center;
     height: auto;

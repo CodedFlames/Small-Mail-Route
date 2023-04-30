@@ -18,8 +18,6 @@
 
 
 <style>
-
-
 #SubmitLog{
     align-self: center;
     height: auto;

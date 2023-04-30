@@ -1,4 +1,0 @@
-name = "small-mail-route"
-compatibility_date = "2023-04-27"
-[vars]
-R_WORD = "Password123"

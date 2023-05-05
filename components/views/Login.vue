@@ -8,12 +8,15 @@ let TryAgain = false;
 function Check(){
     const data = event.target.elements;
     axios.get(`${import.meta.env.VITE_TESTIP}/pass/${data.Password.value}`).then((call)=>{
+        console.log("In call.")
+        console.log("STATUS:", call.data.status)
         if (call.data.status === false){
-            TryAgain = true;
+            return TryAgain = true;
+            console.log(TryAgain)
         }else{
             router.push('/Test');
         }
-    }) //for vite testing purposes
+    }).catch((Caught) =>{console.log("ERROR,",Caught)}) //for vite testing purposes
 }
 </script>
 
@@ -23,7 +26,7 @@ function Check(){
 <section id="PassSection" class="container center col">
     <h1 class="Med">Mail-Route</h1>
     <h1 class="Small">Login</h1>
-    <h3 v-if="status" class="red">login failed, check your password.</h3>
+    <h3 v-show="TryAgain" class="red">login failed, check your password.</h3>
     <form @submit.prevent="Check()" id="LoginForm" class="container col">
         <input placeholder="Username" class="Small" type="text" id="Username">
         <input placeholder="Password" class="Small" type="password" id="Password">

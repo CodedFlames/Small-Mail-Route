@@ -1,4 +1,4 @@
-<script setup>
+<script>
 import {default as router } from '../index.ts'
 
 // function FirstFun(){

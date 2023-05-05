@@ -6,6 +6,12 @@ import "./components/styles.css";
 import login from "./components/views/Login.vue";
 import test from "./components/views/Test.vue";
 
+dotenv.config
+const app = createApp(index);
+
+
+
+
 const routes = [
     {path: '/', component: login},
     {path: '/test', component: test}
@@ -17,12 +23,8 @@ const router = createRouter({
 })
 
 
-dotenv.config
-
-const app = createApp(index);
 
 app.use(router);
-
 app.mount("#app");
 
 export default router;

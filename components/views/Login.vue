@@ -1,7 +1,7 @@
 <script setup>
-import {default as router } from '../../index.ts';
+import { router } from "../../index"
 import axios from 'axios';
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 
 let TryAgain = false;
 
@@ -11,22 +11,23 @@ function Check(){
         console.log("In call.")
         console.log("STATUS:", call.data.status)
         if (call.data.status === false){
-            return TryAgain = true;
-            console.log(TryAgain)
+            TryAgain = true;
+            console.log("INSIDE CHECK, VAL;",TryAgain);
         }else{
             router.push('/Test');
         }
-    }).catch((Caught) =>{console.log("ERROR,",Caught)}) //for vite testing purposes
+    })
 }
+
+
 </script>
 
 
 <template>
-
-<section id="PassSection" class="container center col">
+<section v-show="TryAgain" id="PassSection" class="container center col">
     <h1 class="Med">Mail-Route</h1>
     <h1 class="Small">Login</h1>
-    <h3 v-show="TryAgain" class="red">login failed, check your password.</h3>
+    <h3 class="red" >login failed, check your password.</h3>
     <form @submit.prevent="Check()" id="LoginForm" class="container col">
         <input placeholder="Username" class="Small" type="text" id="Username">
         <input placeholder="Password" class="Small" type="password" id="Password">

@@ -1,6 +1,5 @@
-<script setup>
-import {default as router } from '../index.ts'
-
+<script>
+import { router } from "../index"
 // function FirstFun(){
 //     console.log("Button clicked.");
 //     router.push('/Test');

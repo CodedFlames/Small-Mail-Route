@@ -20,12 +20,14 @@ server.get('/status', (Res)=>{
 server.get('/pass/:word', (Res)=>{
     const word = Res.req.param('word');
     const Rword = Res.env.R_WORD;
-    if (word == Rword){
-        console.log("True, login, password:",Rword);
+    if (word === Rword){
+        console.log("Password True.");
         return Res.json({status: true}, 200);
+    }else{
+        console.log("Password False.")
+        return Res.json({status: false}, 200)
     }
-    return Res.json({status: false}, 200)
-})
+})  //Just a small mock login.
 
 
 

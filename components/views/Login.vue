@@ -1,30 +1,35 @@
-<script setup>
-import {default as router } from '../../index.ts';
+<script setup lang="ts">
+import { router } from "../../index"
 import axios from 'axios';
-import * as dotenv from "dotenv";
+import { ref } from 'vue';
+// import * as dotenv from "dotenv";
 
-let TryAgain = false;
+const TryAgain = ref(false);
+
 
 function Check(){
     const data = event.target.elements;
     axios.get(`${import.meta.env.VITE_TESTIP}/pass/${data.Password.value}`).then((call)=>{
         if (call.data.status === false){
-            TryAgain = true;
+            TryAgain.value = true;
         }else{
             router.push('/Test');
         }
-    }) //for vite testing purposes
+    })
 }
+
+
 </script>
 
 
 <template>
-
 <section id="PassSection" class="container center col">
     <h1 class="Med">Mail-Route</h1>
     <h1 class="Small">Login</h1>
-    <h3 v-if="status" class="red">login failed, check your password.</h3>
-    <form @submit.prevent="Check()" id="LoginForm" class="container col">
+    <div v-if="TryAgain">
+        <h3 class="red"> Wrong Password or Username, Try Again.</h3>
+    </div>
+    <form @submit.prevent="Check()"  id="LoginForm" class="container col">
         <input placeholder="Username" class="Small" type="text" id="Username">
         <input placeholder="Password" class="Small" type="password" id="Password">
         <input id="SubmitLog" type="submit" value="Enter">

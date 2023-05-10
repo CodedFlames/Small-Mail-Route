@@ -5,7 +5,7 @@
 
 
 <template>
-<h1> THIS IS A TEST! </h1>
+<h1> Home-Page </h1>
 </template>
 
 

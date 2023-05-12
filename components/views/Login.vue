@@ -1,19 +1,21 @@
-<script setup lang="ts">
+<script setup>
 import { router } from "../../index"
 import axios from 'axios';
-import { ref } from 'vue';
+import { ref, inject } from 'vue';
 // import * as dotenv from "dotenv";
 
 const TryAgain = ref(false);
-
+const logged = inject('logged');
 
 function Check(){
     const data = event.target.elements;
     axios.get(`${import.meta.env.VITE_TESTIP}/pass/${data.Password.value}`).then((call)=>{
-        if (call.data.status === false){
+        if (!call.data.status){
             TryAgain.value = true;
+            
         }else{
-            router.push('/Test');
+            logged.value = true;
+            router.push('/Home');
         }
     })
 }

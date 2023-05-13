@@ -2,10 +2,11 @@
 import { router } from "../../index"
 import axios from 'axios';
 import { ref, inject } from 'vue';
+import { store } from '../assets/store'
 // import * as dotenv from "dotenv";
 
 const TryAgain = ref(false);
-const logged = inject('logged');
+let logged = store.logged;
 
 function Check(){
     const data = event.target.elements;
@@ -14,7 +15,8 @@ function Check(){
             TryAgain.value = true;
             
         }else{
-            logged.value = true;
+            logged = true;
+            console.log("log in LOGIN.VUE was changed to:",logged)
             router.push('/Home');
         }
     })

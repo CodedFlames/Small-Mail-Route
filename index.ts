@@ -7,6 +7,8 @@ import { createApp } from "vue";
 import { createRouter, createWebHistory } from 'vue-router';
 import * as dotenv from 'dotenv';
 
+
+
 dotenv.config
 const app = createApp(index);
 
@@ -26,9 +28,9 @@ const router = createRouter({
 })
 
 
-
 app.use(router);
 app.mount("#app");
+
 
 
 export { router };
